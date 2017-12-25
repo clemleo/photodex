@@ -1,0 +1,30 @@
+.Header {
+  position: fixed;
+  height: 100px;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #ebebff;
+  border-bottom: 3px solid #c1c1ff;
+  text-align: center;
+}
+
+.Header-title {
+  margin: 20px 0 10px 0;
+  font-size: 2rem;
+  color: #57446c;
+  text-transform: uppercase;
+}
+
+.Header-title a {
+  color: #57446c;
+  text-decoration: none;
+}
+
+.Header-subtitle {
+  margin: 10px 0;
+  font-size: 1.25rem;
+  color: #b6a9de;
+  text-transform: uppercase;
+}

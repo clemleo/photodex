@@ -1,0 +1,17 @@
+.AuthenticationLinks {
+  text-transform: uppercase;
+  text-align: center;
+  color: #b6a9de;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.AuthenticationLinks a {
+  color: #b6a9de;
+  margin: 0 0.5rem;
+  font-weight: 700;
+}
+
+.AuthenticationLinks a.active, .AuthenticationLinks a:hover {
+  color: #57446c;
+}
