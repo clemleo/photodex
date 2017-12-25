@@ -7,11 +7,5 @@
 }
 
 .AuthenticationLinks a {
-  color: #b6a9de;
   margin: 0 0.5rem;
-  font-weight: 700;
-}
-
-.AuthenticationLinks a.active, .AuthenticationLinks a:hover {
-  color: #57446c;
 }

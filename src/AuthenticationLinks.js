@@ -6,9 +6,9 @@ class AuthenticationLinks extends Component {
   render() {
     return (
       <div className="AuthenticationLinks">
-        <NavLink to="/auth/sign-in">Sign in</NavLink>
+        <NavLink className="subtle-link" to="/auth/sign-in">Sign in</NavLink>
         <small>or</small>
-        <NavLink to="/auth/register">Register</NavLink>
+        <NavLink className="subtle-link" to="/auth/register">Register</NavLink>
       </div>
     );
   }
