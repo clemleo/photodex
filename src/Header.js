@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 
-class Header extends Component {
+export default class extends Component {
   render() {
     return (
       <header className="Header">
@@ -12,5 +12,3 @@ class Header extends Component {
     );
   }
 }
-
-export default Header;

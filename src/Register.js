@@ -2,7 +2,7 @@ import firebase from 'firebase';
 import React, { Component } from 'react';
 import AuthenticationCancel from './AuthenticationCancel';
 
-class Register extends Component {
+export default class extends Component {
   constructor() {
     super();
     this.state = {
@@ -49,5 +49,3 @@ class Register extends Component {
     );
   }
 }
-
-export default Register;

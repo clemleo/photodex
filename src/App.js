@@ -7,7 +7,7 @@ import Header from './Header';
 import Home from './Home';
 import withProps from './withProps'
 
-class App extends Component {
+export default class extends Component {
   constructor() {
     super();
     this.state = { loaded: false };
@@ -33,5 +33,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;

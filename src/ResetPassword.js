@@ -2,7 +2,7 @@ import firebase from 'firebase';
 import React, { Component } from 'react';
 import AuthenticationCancel from './AuthenticationCancel';
 
-class ResetPassword extends Component {
+export default class ResetPassword extends Component {
   constructor(props) {
     super();
     this.state = {
@@ -36,5 +36,3 @@ class ResetPassword extends Component {
     );
   }
 }
-
-export default ResetPassword;

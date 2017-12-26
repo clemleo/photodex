@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import './AuthenticationLinks.css';
 
-class AuthenticationLinks extends Component {
+export default class AuthenticationLinks extends Component {
   render() {
     return (
       <div className="AuthenticationLinks">
@@ -13,5 +13,3 @@ class AuthenticationLinks extends Component {
     );
   }
 }
-
-export default AuthenticationLinks;
