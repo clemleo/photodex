@@ -1,11 +1,11 @@
-import firebase from "firebase";
+import firebase from 'firebase';
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
-import Authentication from "./Authentication";
-import Header from './Header';
-import Home from './Home';
-import withProps from './withProps'
+import Authentication from './auth/Authentication';
+import Header from './layout/Header';
+import Home from './home/Home';
+import withProps from '../hoc/withProps'
 
 export default class extends Component {
   constructor() {

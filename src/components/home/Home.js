@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AuthenticationLinks from './AuthenticationLinks';
+import AuthenticationLinks from '../auth/AuthenticationLinks';
 
 export default class extends Component {
   render() {

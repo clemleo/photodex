@@ -1,6 +1,11 @@
 import firebase from 'firebase';
 import React, { Component } from 'react';
 import AuthenticationCancel from './AuthenticationCancel';
+import EmailInput from '../form/EmailInput';
+import Form from '../form/Form';
+import PasswordInput from '../form/PasswordInput';
+import SmallPrint from '../form/SmallPrint';
+import SubmitButton from '../form/SubmitButton';
 
 export default class extends Component {
   constructor() {
@@ -32,20 +37,17 @@ export default class extends Component {
 
   render() {
     return (
-      <form onSubmit={e => this.handleSubmit(e)}>
-        <p className="small-print">Trainer name should match Pokémon GO.</p>
+      <Form onSubmit={e => this.handleSubmit(e)} error={this.state.error}>
+        <SmallPrint>Trainer name should match Pokémon GO.</SmallPrint>
         <input name="name" type="text" placeholder="Trainer name" required pattern="[a-zA-Z0-9]{4,15}"
           autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck="false"
           onChange={e => this.handleNameChange(e)} />
-        <p className="small-print">Email adress and password do <u>not</u> have to match Pokémon GO!</p>
-        <input name="email" type="email" placeholder="Email address" required
-          onChange={e => this.handleEmailChange(e)} />
-        <input name="password" type="password" placeholder="Password" required
-          onChange={e => this.handlePasswordChange(e)} />
-        <button type="submit">Go!</button>
+        <SmallPrint>Email adress and password do <u>not</u> have to match Pokémon GO!</SmallPrint>
+        <EmailInput placeholder="Email address" required onChange={e => this.handleEmailChange(e)} />
+        <PasswordInput required onChange={e => this.handlePasswordChange(e)} />
+        <SubmitButton />
         <AuthenticationCancel />
-        {this.state.error && <p className="small-print error">{this.state.error.message}</p>}
-      </form>
+      </Form>
     );
   }
 }

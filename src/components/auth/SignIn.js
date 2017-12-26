@@ -2,6 +2,10 @@ import firebase from 'firebase';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import AuthenticationCancel from './AuthenticationCancel';
+import EmailInput from '../form/EmailInput';
+import Form from '../form/Form';
+import PasswordInput from '../form/PasswordInput';
+import SubmitButton from '../form/SubmitButton';
 
 export default class SignIn extends Component {
   constructor() {
@@ -28,19 +32,16 @@ export default class SignIn extends Component {
 
   render() {
     return (
-      <form onSubmit={e => this.handleSubmit(e)}>
-        <input name="email" type="email" placeholder="Email address" required
-          onChange={e => this.handleEmailChange(e)} value={this.state.email} />
-        <input name="password" type="password" placeholder="Password" required
-          onChange={e => this.handlePasswordChange(e)} value={this.state.password} />
-        <button type="submit">Go!</button>
+      <Form onSubmit={e => this.handleSubmit(e)} error={this.state.error}>
+        <EmailInput required onChange={e => this.handleEmailChange(e)} value={this.state.email} />
+        <PasswordInput required onChange={e => this.handlePasswordChange(e)} value={this.state.password} />
+        <SubmitButton />
         <AuthenticationCancel />
         <div style={{ marginBottom: '10px' }}>
           <Link className="subtle-link" style={{ textDecoration: 'none', fontSize: '0.8rem' }}
             to="/auth/reset-password">Forgotten your password?</Link>
         </div>
-        {this.state.error && <p className="small-print error">{this.state.error.message}</p>}
-      </form>
+      </Form>
     );
   }
 }

@@ -1,0 +1,20 @@
+.SubmitButton {
+  background-color: #ebebff;
+  color: #57446c;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin: 10px 10px 10px 0;
+  border: solid 2px #c1c1ff;
+  border-radius: 6px;
+  transition: border 0.3s;
+}
+
+.SubmitButton:hover, .SubmitButton:active, .SubmitButton:focus {
+  outline: none;
+  border: solid 2px #8e8eff;
+}
+
+.SubmitButton:active {
+  background-color: #d4d4ff;
+}

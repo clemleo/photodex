@@ -1,8 +1,13 @@
 import firebase from 'firebase';
 import React, { Component } from 'react';
 import AuthenticationCancel from './AuthenticationCancel';
+import EmailInput from '../form/EmailInput';
+import Form from '../form/Form';
+import PasswordInput from '../form/PasswordInput';
+import SmallPrint from '../form/SmallPrint';
+import SubmitButton from '../form/SubmitButton';
 
-export default class ResetPassword extends Component {
+export default class extends Component {
   constructor(props) {
     super();
     this.state = {
@@ -26,13 +31,12 @@ export default class ResetPassword extends Component {
 
   render() {
     return (
-      <form onSubmit={e => this.handleSubmit(e)}>
-        <input name="email" type="email" placeholder="Email address" required
-          onChange={e => this.handleEmailChange(e)} value={this.state.email} />
-        <button type="submit">Reset</button>
+      <Form onSubmit={e => this.handleSubmit(e)} error={this.state.error}>
+        <SmallPrint>An email will be sent with password reset instructions.</SmallPrint>
+        <EmailInput required onChange={e => this.handleEmailChange(e)} value={this.state.email} />
+        <SubmitButton>Reset</SubmitButton>
         <AuthenticationCancel />
-        {this.state.error && <p className="small-print error">{this.state.error.message}</p>}
-      </form>
+      </Form>
     );
   }
 }

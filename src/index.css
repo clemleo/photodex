@@ -1,60 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:300");
 body {
   background-color: #dedeff;
+  color: #57446c;
   font-family: "Lato", sans-serif;
   overflow-y: scroll;
   margin: 0;
-}
-
-form input:not([type]), form input[type="text"], form input[type="email"], form input[type="password"] {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  -ms-progress-appearance: none;
-  box-shadow: none;
-  background-color: #ebebff;
-  box-sizing: border-box;
-  width: 100%;
-  padding: 10px;
-  margin: 2px 0;
-  border: solid 1px #c1c1ff;
-  border-radius: 6px;
-  transition: border 0.3s;
-}
-
-form input:not([type]):focus, form input[type="text"]:focus, form input[type="email"]:focus, form input[type="password"]:focus {
-  outline: none;
-  border: solid 1px #8e8eff;
-}
-
-form button {
-  background-color: #ebebff;
-  color: #57446c;
-  text-transform: uppercase;
-  font-weight: bold;
-  padding: 10px 20px;
-  margin: 10px 10px 10px 0;
-  border: solid 2px #c1c1ff;
-  border-radius: 6px;
-  transition: border 0.3s;
-}
-
-form button:hover, form button:active, form button:focus {
-  outline: none;
-  border: solid 2px #8e8eff;
-}
-
-form button:active {
-  background-color: #d4d4ff;
-}
-
-.small-print {
-  font-size: 0.8em;
-  margin: 0;
-}
-
-.error {
-  color: red;
-  font-weight: bold;
 }
 
 .subtle-link {
