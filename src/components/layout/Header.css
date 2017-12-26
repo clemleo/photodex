@@ -11,7 +11,7 @@
 }
 
 .Header-title {
-  margin: 20px 0 10px 0;
+  margin: 10px 0 0px 0;
   font-size: 2rem;
   color: #57446c;
   text-transform: uppercase;
@@ -23,7 +23,7 @@
 }
 
 .Header-subtitle {
-  margin: 10px 0;
+  margin: 15px 0;
   font-size: 1.25rem;
   color: #b6a9de;
   text-transform: uppercase;
