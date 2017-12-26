@@ -12,6 +12,12 @@ body {
   font-weight: 700;
 }
 
-.subtle-link.active, .subtle-link:hover, .subtle-link:focus {
+.subtle-link.active, .subtle-link:focus {
   color: #57446c;
+}
+
+@media not all and (hover: none) {
+  .subtle-link:hover {
+    color: #57446c;
+  }
 }

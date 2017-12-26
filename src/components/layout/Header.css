@@ -13,7 +13,7 @@
 
 .Header-left, .Header-right {
   flex: 1 1 0;
-  margin: 5px 10px 0 10px;
+  margin: 5px 10px 10px;
 }
 
 .Header-left {

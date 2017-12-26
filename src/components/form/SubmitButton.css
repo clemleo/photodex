@@ -11,9 +11,14 @@
   cursor: pointer;
 }
 
-.SubmitButton:hover, .SubmitButton:active, .SubmitButton:focus {
-  outline: none;
+.SubmitButton:active, .SubmitButton:focus {
   border: solid 2px #8e8eff;
+}
+
+@media not all and (hover: none) {
+  .SubmitButton:hover {
+    border: solid 2px #8e8eff;
+  }
 }
 
 .SubmitButton:disabled {

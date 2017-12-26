@@ -7,5 +7,5 @@ export default function IconButton(props) {
     <button className="IconButton" {...otherProps}>
       <i className={`fas fa-${props.icon}`} />
     </button>
-  )
+  );
 } 
