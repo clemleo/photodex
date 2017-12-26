@@ -1,0 +1,115 @@
+.Photodex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.Photodex-Entry {
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  border-radius: 10%;
+  color: #f0f0ff;
+}
+
+.Photodex-Entry.clickable {
+  cursor: pointer;
+}
+
+.Photodex-Entry:not(.clickable) {
+  cursor: default;
+}
+
+.Photodex-Entry.kanto {
+  background-color: #c9c9ff;
+}
+
+.Photodex-Entry.johto {
+  background-color: #bed3fe;
+}
+
+.Photodex-Entry.hoenn {
+  background-color: #b6c6f9;
+}
+
+.Photodex-Entry.unobtainable {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.Photodex-Entry.kanto.unobtainable {
+  color: #c9c9ff;
+}
+
+.Photodex-Entry.johto.unobtainable {
+  color: #bed3fe;
+}
+
+.Photodex-Entry.hoenn.unobtainable {
+  color: #b6c6f9;
+}
+
+.Photodex-Entry img {
+  max-width: 100%;
+  display: block;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.Photodex-Entry.placeholder {
+  height: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.Photodex-Entry {
+  margin: 6px;
+  width: 192px;
+  height: 192px;
+  line-height: 192px;
+  font-size: 72px;
+}
+
+@media (max-width: 1200px) {
+  .Photodex-Entry {
+    margin: 5px;
+    width: 160px;
+    height: 160px;
+    line-height: 160px;
+    font-size: 60px;
+  }
+}
+
+@media (max-width: 960px) {
+  .Photodex-Entry {
+    margin: 4px;
+    width: 128px;
+    height: 128px;
+    line-height: 128px;
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 720px) {
+  .Photodex-Entry {
+    margin: 3px;
+    width: 96px;
+    height: 96px;
+    line-height: 96px;
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .Photodex-Entry {
+    margin: 2px;
+    width: 64px;
+    height: 64px;
+    line-height: 64px;
+    font-size: 24px;
+  }
+}

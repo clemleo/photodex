@@ -1,10 +1,11 @@
 import firebase from 'firebase';
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Authentication from './auth/Authentication';
 import Header from './layout/Header';
 import Home from './home/Home';
+import Photodex from './photodex/Photodex';
 import withProps from '../hoc/withProps'
 
 export default class App extends Component {
@@ -15,7 +16,8 @@ export default class App extends Component {
       if (user) {
         let db = firebase.firestore();
         db.collection('users').doc(user.uid).get().then(doc => {
-          this.setState({ loaded: true, user: doc.data() });
+          Object.assign(user, doc.data());
+          this.setState({ loaded: true, user: user });
         });
       } else {
         this.setState({ loaded: true, user: undefined });
@@ -31,8 +33,11 @@ export default class App extends Component {
             <Header user={this.state.user} />
           </div>
           {this.state.loaded && <div className="App-content">
-            <Route exact path="/" component={withProps(Home, { user: this.state.user })} />
-            <Route path="/auth/:action" component={withProps(Authentication, { user: this.state.user })} />
+            <Switch>
+              <Route exact path="/" component={withProps(Home, { user: this.state.user })} />
+              <Route exact path="/auth/:action" component={withProps(Authentication, { user: this.state.user })} />
+              <Route exact path="/:trainer" component={withProps(Photodex, { user: this.state.user })} />
+            </Switch>
           </div>}
         </div>
       </Router>

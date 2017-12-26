@@ -1,7 +1,9 @@
 import firebase from 'firebase';
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route, Switch } from 'react-router-dom';
 import './Header.css';
+import DefaultSubheader from "./DefaultSubheader";
+import PhotodexSubheader from "./PhotodexSubheader";
 import IconButton from '../shared/IconButton';
 import IconLink from '../shared/IconLink';
 
@@ -21,7 +23,10 @@ export default class Header extends Component {
         </div>
         <div className="Header-center">
           <h1 className="Header-title"><Link to="/">Photódex</Link></h1>
-          <h2 className="Header-subtitle">Gotta snap 'em all!</h2>
+          <Switch>
+            <Route exact path="/:trainer" component={PhotodexSubheader} />
+            <Route path="/" component={DefaultSubheader} />
+          </Switch>
         </div>
         <div className="Header-right">
           {user && <IconButton icon="sign-out-alt" aria-label="Sign out"

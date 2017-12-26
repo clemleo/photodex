@@ -33,7 +33,8 @@ export default class Register extends Component {
     this.setState({ loading: true });
     firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
       .then(user => {
-        firebase.firestore().collection('users').doc(user.uid).set({
+        let db = firebase.firestore();
+        db.collection('users').doc(user.uid).set({
           name: this.state.name
         });
       })
