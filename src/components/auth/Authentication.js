@@ -1,26 +1,23 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import './Authentication.css';
 import AuthenticationLinks from './AuthenticationLinks';
 import SignIn from './SignIn';
 import Register from './Register';
 import ResetPassword from './ResetPassword';
 
-export default class Authentication extends Component {
-  componentWillMount() {
-    if (this.props.user) {
-      this.props.history.replace('/');
-    }
-  }
-
-  render() {
+export default function Authentication(props) {
+  if (props.user) {
     return (
-      <div className="Authentication">
-        <AuthenticationLinks />
-        <Route path="/auth/sign-in" component={SignIn} />
-        <Route path="/auth/register" component={Register} />
-        <Route path="/auth/reset-password" component={ResetPassword} />
-      </div>
+      <Redirect to="/" />
     );
   }
+  return (
+    <div className="Authentication">
+      <AuthenticationLinks />
+      <Route path="/auth/sign-in" component={SignIn} />
+      <Route path="/auth/register" component={Register} />
+      <Route path="/auth/reset-password" component={ResetPassword} />
+    </div>
+  );
 }
