@@ -1,3 +1,4 @@
+import alertify from 'alertify.js';
 import firebase from 'firebase';
 import React, { Component } from 'react';
 import AuthenticationCancel from './AuthenticationCancel';
@@ -22,7 +23,7 @@ export default class ResetPassword extends Component {
     this.setState({ loading: true });
     firebase.auth().sendPasswordResetEmail(this.state.email)
       .then(() => {
-        alert('A password reset email has been sent.')
+        alertify.alert('A password reset email has been sent.')
         this.props.history.push('/auth/sign-in');
       })
       .catch(error => this.setState({ error: error, loading: false }));

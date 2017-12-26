@@ -41,11 +41,11 @@ export default class Entry extends Component {
     let unobtainableClass = pokemon.obtainable ? '' : 'unobtainable';
     let clickableClass = onClick && pokemon.obtainable ? 'clickable' : '';
     return (
-      <div className={`Photodex-Entry ${pokemon.region} ${unobtainableClass} ${clickableClass}`}
+      <button className={`Photodex-Entry ${pokemon.region} ${unobtainableClass} ${clickableClass}`}
         onClick={onClick}>
         <input type="file" style={{ display: 'none' }} ref={input => this.fileInput = input} />
         {this.state.url ? <img src={this.state.url} alt={pokemon.name} /> : this.props.number}
-      </div>
+      </button>
     );
   }
 }

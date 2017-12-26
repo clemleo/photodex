@@ -9,8 +9,12 @@
   position: relative;
   overflow: hidden;
   box-sizing: border-box;
+  border: none;
   border-radius: 10%;
   color: #f0f0ff;
+  display: flex;
+  justify-content: center;
+  font-weight: normal;
 }
 
 .Photodex-Entry.clickable {

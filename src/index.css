@@ -7,6 +7,11 @@ body {
   margin: 0;
 }
 
+button {
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+}
+
 .subtle-link {
   color: #b6a9de;
   font-weight: 700;
@@ -20,4 +25,8 @@ body {
   .subtle-link:hover {
     color: #57446c;
   }
+}
+
+.dialog {
+  font-weight: bold;
 }

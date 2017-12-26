@@ -1,3 +1,4 @@
+import alertify from 'alertify.js';
 import firebase from 'firebase';
 import React, { Component } from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
@@ -9,9 +10,7 @@ import IconLink from '../shared/IconLink';
 
 export default class Header extends Component {
   handleSignOut() {
-    if (window.confirm('Sign out of Photódex?')) {
-      firebase.auth().signOut();
-    };
+    alertify.confirm('Sign out of your Photódex account?', () => firebase.auth().signOut());
   }
 
   render() {
