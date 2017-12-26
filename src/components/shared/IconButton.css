@@ -1,0 +1,12 @@
+.IconButton {
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+  padding: 0.5rem;
+  color: #b6a9de;
+  cursor: pointer;
+}
+
+.IconButton.active, .IconButton:hover, .IconButton:focus {
+  color: #57446c;
+}

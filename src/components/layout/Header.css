@@ -7,7 +7,25 @@
   right: 0;
   background-color: #ebebff;
   border-bottom: 3px solid #c1c1ff;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Header-left, .Header-right {
+  flex: 1 1 0;
+  margin: 5px 10px 0 10px;
+}
+
+.Header-left {
+  text-align: left;
+}
+
+.Header-center {
   text-align: center;
+}
+
+.Header-right {
+  text-align: right;
 }
 
 .Header-title {

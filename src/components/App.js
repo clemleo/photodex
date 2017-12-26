@@ -18,7 +18,7 @@ export default class App extends Component {
           this.setState({ loaded: true, user: doc.data() });
         });
       } else {
-        this.setState({ loaded: true });
+        this.setState({ loaded: true, user: undefined });
       }
     });
   }

@@ -8,6 +8,7 @@
   border: solid 2px #c1c1ff;
   border-radius: 6px;
   transition: border 0.3s;
+  cursor: pointer;
 }
 
 .SubmitButton:hover, .SubmitButton:active, .SubmitButton:focus {
