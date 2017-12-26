@@ -6,7 +6,7 @@ import SignIn from './SignIn';
 import Register from './Register';
 import ResetPassword from './ResetPassword';
 
-export default class extends Component {
+export default class Authentication extends Component {
   componentWillMount() {
     if (this.props.user) {
       this.props.history.replace('/');

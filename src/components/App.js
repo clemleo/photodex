@@ -7,13 +7,19 @@ import Header from './layout/Header';
 import Home from './home/Home';
 import withProps from '../hoc/withProps'
 
-export default class extends Component {
+export default class App extends Component {
   constructor() {
     super();
     this.state = { loaded: false };
     firebase.auth().onAuthStateChanged(user => {
-      let loaded = true;
-      this.setState({ loaded, user });
+      if (user) {
+        let db = firebase.firestore();
+        db.collection('users').doc(user.uid).get().then(doc => {
+          this.setState({ loaded: true, user: doc.data() });
+        });
+      } else {
+        this.setState({ loaded: true });
+      }
     });
   }
 

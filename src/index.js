@@ -1,4 +1,5 @@
 import firebase from 'firebase';
+import 'firebase/firestore'; // Required for side effects.
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';

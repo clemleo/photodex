@@ -7,7 +7,7 @@ import PasswordInput from '../form/PasswordInput';
 import SmallPrint from '../form/SmallPrint';
 import SubmitButton from '../form/SubmitButton';
 
-export default class extends Component {
+export default class Register extends Component {
   constructor() {
     super();
     this.state = {
@@ -30,8 +30,14 @@ export default class extends Component {
   }
 
   handleSubmit(e) {
+    this.setState({ loading: true });
     firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
-      .catch(error => this.setState({ error }));
+      .then(user => {
+        firebase.firestore().collection('users').doc(user.uid).set({
+          name: this.state.name
+        });
+      })
+      .catch(error => this.setState({ error: error, loading: false }));
     e.preventDefault();
   }
 
@@ -45,7 +51,7 @@ export default class extends Component {
         <SmallPrint>Email adress and password do <u>not</u> have to match Pokémon GO!</SmallPrint>
         <EmailInput placeholder="Email address" required onChange={e => this.handleEmailChange(e)} />
         <PasswordInput required onChange={e => this.handlePasswordChange(e)} />
-        <SubmitButton />
+        <SubmitButton loading={this.state.loading} />
         <AuthenticationCancel />
       </Form>
     );

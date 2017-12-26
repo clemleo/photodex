@@ -1,12 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './SubmitButton.css';
 
-export default class extends Component {
-  render() {
-    return (
-      <button className="SubmitButton" type="submit">
-        {this.props.children || 'Go!'}
-      </button>
-    );
-  }
+export default function SubmitButton(props) {
+  return (
+    <button className="SubmitButton" type="submit" disabled={props.loading}>
+      {props.children || 'Go!'}
+    </button>
+  );
 }

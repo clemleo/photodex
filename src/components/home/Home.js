@@ -1,14 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import AuthenticationLinks from '../auth/AuthenticationLinks';
 
-export default class extends Component {
-  render() {
-    let email = this.props.user && this.props.user.email;
-    return (
-      <div>
-        {!this.props.user && <AuthenticationLinks />}
-        Hello {email || 'anonymous'}!
-      </div>
-    );
-  }
+export default function Home(props) {
+  return (
+    <div>
+      {!props.user && <AuthenticationLinks />}
+      Hello {props.user ? props.user.name : 'anonymous'}!
+    </div>
+  );
 }
