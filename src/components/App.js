@@ -20,7 +20,7 @@ export default class App extends Component {
           this.setState({ loaded: true, user: user });
         });
       } else {
-        this.setState({ loaded: true, user: undefined });
+        this.setState({ loaded: true, user: null });
       }
     });
   }

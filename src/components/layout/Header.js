@@ -19,7 +19,7 @@ export default class Header extends Component {
     return (
       <header className="Header">
         <div className="Header-left">
-          {user && <IconLink icon="images" aria-label="Sign out" to={`/${user.name}`} />}
+          {user && <IconLink icon="images" aria-label="My Photódex" to={`/${user.name}`} />}
         </div>
         <div className="Header-center">
           <h1 className="Header-title"><Link to="/">Photódex</Link></h1>
@@ -29,8 +29,10 @@ export default class Header extends Component {
           </Switch>
         </div>
         <div className="Header-right">
-          {user && <IconButton icon="sign-out-alt" aria-label="Sign out"
-            onClick={() => this.handleSignOut()} />}
+          {user !== undefined && (user !== null ?
+            <IconButton icon="sign-out-alt" aria-label="Sign out"
+              onClick={() => this.handleSignOut()} /> :
+            <IconLink icon="sign-in-alt" aria-label="Sign in" to="/auth/sign-in" />)}
         </div>
       </header>
     );
