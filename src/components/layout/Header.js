@@ -17,7 +17,7 @@ export default class Header extends Component {
     let user = this.props.user;
     let trainerName = this.props.match.params.trainer;
     let canEdit = user && (user.name === trainerName);
-    let editMode = this.props.match.params.edit === 'edit';
+    let editMode = this.props.match.params.numberOrMode === 'edit';
     return (
       <header className="Header">
         <div className="Header-left">

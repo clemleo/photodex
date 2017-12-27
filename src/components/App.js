@@ -40,14 +40,14 @@ export default class App extends Component {
             <Switch>
               <Route exact path="/" component={this.withUser(Header)} />
               <Route exact path="/auth/:action" component={this.withUser(Header)} />
-              <Route exact path="/:trainer/:edit?" component={this.withUser(Header)} />
+              <Route exact path="/:trainer/:numberOrMode?" component={this.withUser(Header)} />
             </Switch>
           </div>
           {this.state.loaded && <div className="App-content">
             <Switch>
               <Route exact path="/" component={this.withUser(Home)} />
               <Route exact path="/auth/:action" component={this.withUser(Authentication)} />
-              <Route exact path="/:trainer/:edit?" component={this.withUser(Photodex)} />
+              <Route exact path="/:trainer/:numberOrMode?" component={this.withUser(Photodex)} />
             </Switch>
           </div>}
         </div>

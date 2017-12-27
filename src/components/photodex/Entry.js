@@ -1,5 +1,6 @@
 import firebase from 'firebase';
 import React, { Component } from 'react';
+import Spinner from '../shared/Spinner';
 
 export default class Entry extends Component {
   constructor(props) {
@@ -8,21 +9,21 @@ export default class Entry extends Component {
     this.state = {};
   }
 
-  componentDidMount() {
-    this.getSnapDocRef().get().then(doc => {
-      if (doc.exists) {
-        this.setState({ url: doc.data().rawUrl });
-      }
-    });
+  componentWillMount() {
+    if (this.props.snap) {
+      this.setState({ url: this.props.snap.rawUrl });
+    }
   }
 
   uploadSnap() {
     this.fileInput.onchange = () => {
       let file = this.fileInput.files[0];
       if (file) {
+        this.setState({ url: null });
         firebase.storage().ref(this.storageRef).put(file).then(snapshot => {
-          this.getSnapDocRef().set({ rawUrl: snapshot.downloadURL });
-          this.setState({ url: snapshot.downloadURL });
+          let url = snapshot.downloadURL;
+          this.getDocRef().set({ rawUrl: url });
+          this.setState({ url });
         });
       }
       this.fileInput.onchange = null;
@@ -30,21 +31,34 @@ export default class Entry extends Component {
     this.fileInput.click();
   }
 
-  getSnapDocRef() {
+  getDocRef() {
     return firebase.firestore().collection('users').doc(this.props.trainerId)
       .collection('snaps').doc(this.props.number);
   }
 
+  getClickHandler() {
+    if (!this.props.pokemon.obtainable) {
+      return null;
+    }
+    if (this.props.editMode) {
+      return () => this.uploadSnap();
+    }
+    return null;
+  }
+
   render() {
-    let pokemon = this.props.pokemon;
-    let onClick = this.props.userId === this.props.trainerId ? () => this.uploadSnap() : undefined;
-    let unobtainableClass = pokemon.obtainable ? '' : 'unobtainable';
-    let clickableClass = onClick && pokemon.obtainable ? 'clickable' : '';
+    let onClick = this.getClickHandler();
+    let clickable = onClick ? 'clickable' : '';
+    let unobtainable = this.props.pokemon.obtainable ? '' : 'unobtainable';
+    let className = `Photodex-Entry ${this.props.pokemon.region} ${unobtainable} ${clickable}`;
     return (
-      <button className={`Photodex-Entry ${pokemon.region} ${unobtainableClass} ${clickableClass}`}
-        onClick={onClick}>
+      <button className={className} onClick={onClick}>
         <input type="file" style={{ display: 'none' }} ref={input => this.fileInput = input} />
-        {this.state.url ? <img src={this.state.url} alt={pokemon.name} /> : this.props.number}
+        {this.state.url === null ?
+          <Spinner /> : // Upload in progress.
+          this.state.url !== undefined ?
+            <img src={this.state.url} alt={this.props.pokemon.name} /> :
+            this.props.number}
       </button>
     );
   }
