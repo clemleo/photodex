@@ -34,13 +34,15 @@ export default class SignIn extends Component {
   render() {
     return (
       <Form onSubmit={e => this.handleSubmit(e)} error={this.state.error}>
-        <EmailInput required onChange={e => this.handleEmailChange(e)} value={this.state.email} />
+        <EmailInput autoFocus required onChange={e => this.handleEmailChange(e)} value={this.state.email} />
         <PasswordInput required onChange={e => this.handlePasswordChange(e)} value={this.state.password} />
         <SubmitButton loading={this.state.loading} />
         <AuthenticationCancel />
         <div style={{ marginBottom: '10px' }}>
           <Link className="subtle-link" style={{ textDecoration: 'none', fontSize: '0.8rem' }}
-            to="/auth/reset-password">Forgotten your password?</Link>
+            to={{ pathname: '/auth/reset-password', state: { email: this.state.email } }}>
+            Forgotten your password?
+          </Link>
         </div>
       </Form>
     );

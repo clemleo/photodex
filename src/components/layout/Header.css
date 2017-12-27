@@ -13,11 +13,14 @@
 
 .Header-left, .Header-right {
   flex: 1 1 0;
-  margin: 5px 10px 10px;
+  margin: 5px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .Header-left {
-  text-align: left;
+  align-items: flex-start;
 }
 
 .Header-center {
@@ -25,7 +28,7 @@
 }
 
 .Header-right {
-  text-align: right;
+  align-items: flex-end;
 }
 
 .Header-title {

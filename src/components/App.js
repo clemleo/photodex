@@ -25,18 +25,29 @@ export default class App extends Component {
     });
   }
 
+  withUser(component) {
+    return withProps(component, { user: this.state.user });
+  }
+
   render() {
+    if (this.state.user === undefined) {
+      return null;
+    }
     return (
       <Router>
         <div className="App">
           <div className="App-header">
-            <Header user={this.state.user} />
+            <Switch>
+              <Route exact path="/" component={this.withUser(Header)} />
+              <Route exact path="/auth/:action" component={this.withUser(Header)} />
+              <Route exact path="/:trainer/:edit?" component={this.withUser(Header)} />
+            </Switch>
           </div>
           {this.state.loaded && <div className="App-content">
             <Switch>
-              <Route exact path="/" component={withProps(Home, { user: this.state.user })} />
-              <Route exact path="/auth/:action" component={withProps(Authentication, { user: this.state.user })} />
-              <Route exact path="/:trainer" component={withProps(Photodex, { user: this.state.user })} />
+              <Route exact path="/" component={this.withUser(Home)} />
+              <Route exact path="/auth/:action" component={this.withUser(Authentication)} />
+              <Route exact path="/:trainer/:edit?" component={this.withUser(Photodex)} />
             </Switch>
           </div>}
         </div>

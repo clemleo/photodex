@@ -47,7 +47,7 @@ export default class Register extends Component {
       <Form onSubmit={e => this.handleSubmit(e)} error={this.state.error}>
         <SmallPrint>Trainer name should match Pokémon GO.</SmallPrint>
         <input name="name" type="text" placeholder="Trainer name" required pattern="[a-zA-Z0-9]{4,15}"
-          autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck="false"
+          autoFocus autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck="false"
           onChange={e => this.handleNameChange(e)} />
         <SmallPrint>Email adress and password do <u>not</u> have to match Pokémon GO!</SmallPrint>
         <EmailInput placeholder="Email address" required onChange={e => this.handleEmailChange(e)} />

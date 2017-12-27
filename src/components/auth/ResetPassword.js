@@ -11,7 +11,7 @@ export default class ResetPassword extends Component {
   constructor(props) {
     super();
     this.state = {
-      email: ''
+      email: props.location.state && props.location.state.email
     };
   }
 
@@ -34,7 +34,7 @@ export default class ResetPassword extends Component {
     return (
       <Form onSubmit={e => this.handleSubmit(e)} error={this.state.error}>
         <SmallPrint>An email will be sent with password reset instructions.</SmallPrint>
-        <EmailInput required onChange={e => this.handleEmailChange(e)} value={this.state.email} />
+        <EmailInput autoFocus required onChange={e => this.handleEmailChange(e)} value={this.state.email} />
         <SubmitButton loading={this.state.loading}>Reset</SubmitButton>
         <AuthenticationCancel />
       </Form>
