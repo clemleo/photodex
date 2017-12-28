@@ -13,16 +13,9 @@
   border-radius: 10%;
   color: #f0f0ff;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   font-weight: normal;
-}
-
-.Photodex-Entry.clickable {
-  cursor: pointer;
-}
-
-.Photodex-Entry:not(.clickable) {
-  cursor: default;
 }
 
 .Photodex-Entry.kanto {
@@ -57,11 +50,6 @@
   max-width: 100%;
   display: block;
   margin: auto;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
 }
 
 .Photodex-Entry.placeholder {
@@ -70,11 +58,55 @@
   margin-bottom: 0 !important;
 }
 
+.Photodex-Entry-edit {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2%;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 10%;
+}
+
+.Photodex-Entry-edit-name {
+  font-size: 0.4em;
+  font-weight: bold;
+}
+
+.Photodex-Entry-edit-buttons .IconButton {
+  font-size: 0.5em;
+}
+
+.Photodex-Entry-edit-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Photodex-Entry-edit-buttons .IconButton {
+  color: white;
+  padding: 0.2em;
+}
+
+.Photodex-Entry-edit-buttons .IconButton:active, .Photodex-Entry-edit-buttons .IconButton:focus {
+  color: lightgrey;
+}
+
+@media not all and (hover: none) {
+  .Photodex-Entry-edit-buttons .IconButton:hover {
+    color: lightgrey;
+  }
+}
+
 .Photodex-Entry {
   margin: 6px;
   width: 192px;
   height: 192px;
-  line-height: 192px;
   font-size: 72px;
 }
 
@@ -83,7 +115,6 @@
     margin: 5px;
     width: 160px;
     height: 160px;
-    line-height: 160px;
     font-size: 60px;
   }
 }
@@ -93,7 +124,6 @@
     margin: 4px;
     width: 128px;
     height: 128px;
-    line-height: 128px;
     font-size: 48px;
   }
 }
@@ -103,7 +133,6 @@
     margin: 3px;
     width: 96px;
     height: 96px;
-    line-height: 96px;
     font-size: 36px;
   }
 }
@@ -113,7 +142,6 @@
     margin: 2px;
     width: 64px;
     height: 64px;
-    line-height: 64px;
     font-size: 24px;
   }
 }

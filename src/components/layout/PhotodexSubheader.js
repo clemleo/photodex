@@ -13,7 +13,7 @@ export default class PhotodexSubheader extends Component {
       let trainer = snapshot.docs[0];
       if (trainer) {
         let trainerId = trainer.id;
-        db.collection('users').doc(trainerId).collection('snaps').get().then(snapshot =>
+        db.collection('users').doc(trainerId).collection('snaps').onSnapshot(snapshot =>
           this.setState({ count: snapshot.size || 0 })
         );
       } else {

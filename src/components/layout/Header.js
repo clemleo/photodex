@@ -21,10 +21,13 @@ export default class Header extends Component {
     return (
       <header className="Header">
         <div className="Header-left">
-          {user && <IconLink icon="picture-o" aria-label="My Photódex" to={`/${user.name}`} />}
+          {user && <IconLink icon="picture-o" to={`/${user.name}`}
+             title="My Photódex" aria-label="My Photódex" />}
           {canEdit && (editMode ?
-            <IconLink icon="eye" aria-label="View" to={`/${user.name}`} /> :
-            <IconLink icon="upload" aria-label="Upload" to={`/${user.name}/edit`} />
+            <IconLink icon="eye" to={`/${user.name}`}
+              title="View" aria-label="View" /> :
+            <IconLink icon="pencil" to={`/${user.name}/edit`}
+              title="Edit" aria-label="Edit" />
           )}
         </div>
         <div className="Header-center">
@@ -33,9 +36,10 @@ export default class Header extends Component {
         </div>
         <div className="Header-right">
           {user !== undefined && (user !== null ?
-            <IconButton icon="sign-out" aria-label="Sign out"
-              onClick={() => this.handleSignOut()} /> :
-            <IconLink icon="sign-in" aria-label="Sign in" to="/auth/sign-in" />)}
+            <IconButton icon="sign-out" onClick={() => this.handleSignOut()}
+              title="Sign out" aria-label="Sign out" /> :
+            <IconLink icon="sign-in" to="/auth/sign-in"
+              title="Sign in" aria-label="Sign in" />)}
         </div>
       </header>
     );
