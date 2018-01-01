@@ -72,7 +72,7 @@ export default class Entry extends Component {
           this.state.url === null ?
             <Spinner /> :
             this.props.number}
-        {this.props.editMode &&
+        {this.props.editMode && this.props.pokemon.obtainable &&
           <div className="Photodex-Entry-edit">
             <div className="Photodex-Entry-edit-name">{this.props.pokemon.name}</div>
             <div className="Photodex-Entry-edit-buttons">
