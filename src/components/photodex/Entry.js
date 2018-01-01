@@ -62,8 +62,10 @@ export default class Entry extends Component {
   }
 
   render() {
-    let unobtainable = this.props.pokemon.obtainable ? '' : 'unobtainable';
-    let className = `Photodex-Entry ${this.props.pokemon.region} ${unobtainable}`;
+    let className = `Photodex-Entry ${this.props.pokemon.region}`;
+    if (!this.props.pokemon.obtainable) {
+      className += ' unobtainable';
+    }
     return (
       <div className={className}>
         <input type="file" style={{ display: 'none' }} ref={input => this.fileInput = input} />

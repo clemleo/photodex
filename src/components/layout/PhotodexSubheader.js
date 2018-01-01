@@ -25,7 +25,7 @@ export default class PhotodexSubheader extends Component {
   render() {
     return (
       <div>
-        <p style={{ margin: '0', fontWeight: 'bold' }}>by {this.props.trainerName}</p>
+        <p style={{ margin: '0', fontWeight: 'bold' }}>{this.props.trainerName}</p>
         {this.state.count !== undefined &&
           <h2 className="Header-subtitle" style={{ margin: '4px 0 0 0' }}>
             Snapped: {this.state.count}
